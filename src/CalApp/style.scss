@@ -1,0 +1,140 @@
+
+
+//variables
+
+$baseRedColor :#ff5722 ;
+$hoverRedColor :#ff7043 ;
+$baseGrayColor:rgb(233, 233, 233); 
+$baseDarkGrayColor:rgb(158, 158, 158); 
+$baseBlackColor:rgb(42, 42, 42); 
+
+$baseFontSize:1.4em ; 
+
+
+
+*{
+    margin:0 ; 
+    padding:0; 
+    box-sizing: border-box;
+
+}
+
+.container {
+    font-size: $baseFontSize;
+    width:40%;
+    display: flex;
+    justify-content: center;
+        height: 70vh;
+    align-items: center;
+    margin:0 auto;
+}
+
+.row{
+    margin-bottom:10px !important;
+    width:100% !important;
+    margin-top:10px !important;
+
+}
+.emptyRow{
+    height: 41.5px !important;
+}
+.seqRow{
+        margin:15px 0px !important;
+
+}
+.digit{
+    margin-left: 4px !important;
+}
+.backspaceBtn{
+    height: 30px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $baseRedColor;
+}
+
+
+.backspaceBtn:hover{
+    background-color: $hoverRedColor;
+}
+
+
+.icon{
+    font-size: 15px !important;
+    padding:0px !important;
+    margin: 0px !important;
+}
+.calc_box{
+    width:100%;
+    border:1px solid $baseDarkGrayColor;
+
+}
+/************** resualt box **************/
+
+.resualt_box{
+    padding:15px;
+    text-align: right;
+}
+
+
+/************** GRID **************/
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    background-color: $baseDarkGrayColor;
+    padding:2px;
+
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 1 / 3 / 2 / 4; }
+    .div4 { grid-area: 1 / 4 / 2 / 5; }
+    .div5 { grid-area: 2 / 1 / 3 / 2; }
+    .div6 { grid-area: 2 / 2 / 3 / 3; }
+    .div7 { grid-area: 2 / 3 / 3 / 4; }
+    .div8 { grid-area: 2 / 4 / 3 / 5; }
+    .div9 { grid-area: 3 / 1 / 4 / 2; }
+    .div10 { grid-area: 3 / 2 / 4 / 3; }
+    .div11 { grid-area: 3 / 3 / 4 / 4; }
+    .div12 { grid-area: 3 / 4 / 4 / 5; }
+    .div13 { grid-area: 4 / 1 / 5 / 2; }
+    .div14 { grid-area: 4 / 2 / 5 / 3; }
+    .div15 { grid-area: 4 / 3 / 5 / 4; }
+    .div16 { grid-area: 4 / 4 / 5 / 5; }
+    .div17 { grid-area: 5 / 1 / 6 / 3; }
+    .div18 { grid-area: 5 / 3 / 6 / 4; }
+    .div19 { grid-area: 5 / 4 / 6 / 5; }
+
+    .parent{
+        div{
+            text-align: center;
+            padding:15px;
+            background-color: $baseGrayColor;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+        div:hover{
+            background-color: $hoverRedColor;
+            color:#fff;
+        }
+    }
+
+
+    .AC_Btn{
+        color:#f44336 ;
+    }
+
+    .Operator_Btn{
+    color:$baseRedColor ;
+    
+    }   
+    
+    .Equal_Btn{
+    background-color:$baseRedColor !important;
+    color :#fff ;
+    }
