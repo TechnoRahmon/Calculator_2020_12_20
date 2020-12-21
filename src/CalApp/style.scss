@@ -19,55 +19,72 @@ $baseFontSize:1.4em ;
 
 }
 
-.container {
+.controllerContainer {
     font-size: $baseFontSize;
-    width:40%;
+    width:60%;
     display: flex;
     justify-content: center;
-        height: 70vh;
+    height: 70vh;
     align-items: center;
     margin:0 auto;
 }
 
+.digit{
+    margin-left: 4px !important;
+}
+
+
+
+.calc_box{
+    width:100%;
+    border:1px solid $baseDarkGrayColor;
+
+}
+
+
+/******************* Rows *******************/
 .row{
     margin-bottom:10px !important;
     width:100% !important;
     margin-top:10px !important;
 
 }
+
+.controllerRow{
+    position: relative;
+    width: 100% !important;
+}
+
+
+
+
 .emptyRow{
     height: 41.5px !important;
 }
 .seqRow{
         margin:15px 0px !important;
+}
 
+
+/****************** Cols ************************/
+
+.calculatorCol{
+    padding: 0px !important;
 }
-.digit{
-    margin-left: 4px !important;
-}
-.backspaceBtn{
-    height: 30px !important;
-    display: flex;
-    justify-content: center;
+
+.historyCol{
+    padding:5px 0px !important;
+    margin:0px !important;
+    position: absolute;
+    display: none;
+    flex-direction: column;
     align-items: center;
-    background-color: $baseRedColor;
-}
-
-
-.backspaceBtn:hover{
-    background-color: $hoverRedColor;
-}
-
-
-.icon{
-    font-size: 15px !important;
-    padding:0px !important;
-    margin: 0px !important;
-}
-.calc_box{
-    width:100%;
+    justify-content: space-between;
+    height: 42vh;
+    background-color: $baseGrayColor;
     border:1px solid $baseDarkGrayColor;
-
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 /************** resualt box **************/
 
@@ -124,7 +141,7 @@ $baseFontSize:1.4em ;
         }
     }
 
-
+/****************************** Buttons **************************************/
     .AC_Btn{
         color:#f44336 ;
     }
@@ -138,3 +155,85 @@ $baseFontSize:1.4em ;
     background-color:$baseRedColor !important;
     color :#fff ;
     }
+
+
+/****   BackSpace button *****/
+.backspaceBtn{
+    height: 30px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $baseRedColor;
+}
+
+
+.backspaceBtn:hover{
+    background-color: $hoverRedColor;
+}
+
+
+.icon{
+    font-size: 15px !important;
+    padding:0px !important;
+    margin: 0px !important;
+}
+/**********************************/
+
+
+
+.history_box{
+    overflow: auto;
+    height: 30vh;
+    width: 90%;
+    border:1px solid $baseDarkGrayColor;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.collection{
+    border:0px !important;
+}
+
+.collection-item{
+    width:100%;
+    padding:0px !important;
+}
+
+.collectionLink{
+    padding:10px 15px 5px 15px !important;
+    width: 100% !important;
+    
+    display: flex;
+    color:$baseBlackColor;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.collectionLink h5{
+    margin:0px !important;
+    color :$baseRedColor;
+}
+
+/****   History button *****/
+.HistoryBtn{
+
+    background-color: $baseRedColor;
+    margin-left: 15px !important;
+}
+
+.HistoryBtn:hover{
+    background-color: $hoverRedColor;
+}
+
+.ClearHistoryBtn:hover{
+        background-color: $hoverRedColor !important;
+
+}
+/**********************************/
+
+
+
+
+
+
+

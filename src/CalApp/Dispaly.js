@@ -24,7 +24,7 @@ import useEventListener from './useEventListener';
 
 
 
-const DisplayDom = ({getResualt}) => {
+const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
 
 
     
@@ -34,6 +34,7 @@ const DisplayDom = ({getResualt}) => {
 
             case ESCAPE_KEY:
                 _handelReseatClick()
+                
                 break;
 
             case BACKSPACE_KEY:
@@ -130,20 +131,22 @@ const DisplayDom = ({getResualt}) => {
     const [sequence , setSequence] = useState([]);
 
 
-
         //  print out calcualte content
         useEffect(() => {
             //var display = 
-            console.log(sequence);
-        },[sequence]);
+            //console.log(sequence);
+            if(newNumber){
+                console.log(newNumber)
+                setSequence([newNumber])
+            }
+        },[newNumber]);
 
 
 
         // handel rest click
         const _handelReseatClick= (e)=>{
-            setSequence([])
-          
-                
+            setSequence([])  
+            Clear_newNumber()     
         }
 
 
@@ -217,7 +220,9 @@ const DisplayDom = ({getResualt}) => {
         // handle backspace button
         const _handleBackSpace = e =>{
             //if sequence length if one item 
-            if  ( sequence.length ===1 ){
+            if  ( sequence.length ===1 && Number(sequence[sequence.length-1]) >=10 ){
+                setSequence([ sequence[sequence.length-1].slice(0,sequence[sequence.length-1].length-1 ) ])
+            }else if(sequence.length ===1 && Number(sequence[sequence.length-1]) < 10  ){
                 setSequence([])
             }
             // if last item is operator OR it is one digit number
@@ -304,7 +309,7 @@ const DisplayDom = ({getResualt}) => {
 
    let n =0;
     return (
-        <div className='calc_box'>
+        <div className='calc_box '>
     
            
                 
@@ -322,11 +327,17 @@ const DisplayDom = ({getResualt}) => {
                         
                     </div>
                     <div className="row">
-                        <div className="col s12 l1 offset-l11">
+                        
+                        <div className="col s12 l1">
+                            <span className="btn HistoryBtn disabled" id="HistoryBtn" onClick={showHistory}>History</span>
+                        </div>
+                        
+                        <div className="col s12 l1 offset-l10">
                             <span className="btn  backspaceBtn " onClick={_handleBackSpace} >
                                 <i className="material-icons icon">close</i>
                             </span> 
                         </div>
+                
                     </div>
 
                 </div>    
@@ -338,7 +349,12 @@ const DisplayDom = ({getResualt}) => {
                       
                         </div>
                         <div className="row">
-                            <div className="col s12 l1 offset-l11">
+                            {/* History button */}
+                            <div className="col s12 l1">
+                                <span className="btn HistoryBtn disabled"  id="HistoryBtn" onClick={showHistory}>History</span>
+                            </div>
+                            {/* backspace button */}
+                            <div className="col s12 l1 offset-l10">
                                 <span className="btn  backspaceBtn disabled">
                                     <i className="material-icons icon ">close</i>
                                 </span> 

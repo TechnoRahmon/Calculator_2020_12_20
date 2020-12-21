@@ -1,11 +1,13 @@
 import Display from './Dispaly'
+import History from './History';
 import './style.scss'
 
-import React ,{ useState  }from 'react';
+import React ,{ useState ,useEffect }from 'react';
 
 const Controller = () => {
 
 
+    // operators methodes state 
     const [operators,setOperators] = useState({
         '+':(a,b)=>a+b,
         '-':(a,b)=>a-b,
@@ -14,6 +16,9 @@ const Controller = () => {
         '%':(a,b)=>a%b,
     })
 
+
+
+    // get resault function 
     const getResault = (sequence)=>{
         // check the last item (number / operator)
         if ( Number(sequence[sequence.length-1]) ){
@@ -26,22 +31,77 @@ const Controller = () => {
                 ResualtSequence=[ newItem , ...ResualtSequence.slice(3) ]
                 //console.log(ResualtSequence,i);
            }
+           // set new history
+           setNewHistory({ sequence:sequence , resualt:ResualtSequence[0]})
+           // clear NewNumber from history
+           setNewNumber('');
            //return the final Resualt
            return ResualtSequence[0]
         }else
             alert('Invalid Format Used')
-    
-        
-        //return ((number1!==null) && (number2!==null)&&(op))?operators[op](Number(number1),Number(number2)):false
     }
     
-    //console.log(getResault(2,2));
+    
+
+    //show history function
+    const showHistory =()=>{
+        let historyCol = document.getElementById('historyCol')
+            if(historyCol.style.display === '' || historyCol.style.display ==='none')
+            historyCol.style.display='flex';
+            else
+            historyCol.style.display='none';
+    }
+
+
+    // active HistoryButton
+    const isHistoryEmpty = (history)=>{
+        let historyCol = document.getElementById('historyCol')
+        if(history.length === 0){ 
+           document.getElementById('HistoryBtn').classList.add('disabled');
+           historyCol.style.display='none';
+        
+        }else{ 
+            document.getElementById('HistoryBtn').classList.remove('disabled');
+            
+        }
+    }
+
+
+    // History Functions Handler
+    const [newHistory ,setNewHistory]=useState({sequence:'',resualt:''});
+    const [newNumber , setNewNumber ] = useState('');
+
+    // insert number from history
+    const InsertFromHistory = (_newNumber)=>{
+            setNewNumber(newNumber+_newNumber); 
+    }
+
+    // Clear new number from historyClick function 
+    const Clear_newNumber = ()=>{
+       setNewNumber('');
+    }
+
+
+
+
 
 
 
     return (
-        <div className="container">
-            <Display getResualt={getResault}></Display>
+        <div className="container controllerContainer">
+           <div className="row controllerRow">
+               <History  newHistory={newHistory}
+                InsertFromHistory={InsertFromHistory}
+                isHistoryEmpty={isHistoryEmpty}/>    
+               
+                <div className="col s12 l6 offset-l4 calculatorCol">
+                    <Display getResualt={getResault} 
+                    showHistory={showHistory} 
+                    newNumber={newNumber} 
+                    Clear_newNumber={Clear_newNumber}>
+                    </Display>
+                </div>
+           </div>
         </div>
     );
 
