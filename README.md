@@ -4,7 +4,7 @@ This is a Reactjs Calculator Project. you can do simple calcuatations with this 
 
 ## How to run it 
 
-We are using local Mongo database, so you need to install the mongodb in your system and make sure that it's running at port 27017
+We are using local Mongo database, so you need to install the mongodb server in your system and make sure that it's running at port 27017
 
  *  After you clone the project, you should run in the terminal in you main folder:
 
