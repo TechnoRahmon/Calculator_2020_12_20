@@ -1,5 +1,5 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
 //variables
 
 $baseRedColor :#ff5722 ;
@@ -21,10 +21,10 @@ $baseFontSize:1.4em ;
 
 .controllerContainer {
     font-size: $baseFontSize;
-    width:60%;
+    width:70%;
     display: flex;
     justify-content: center;
-    height: 70vh;
+    height: auto;
     align-items: center;
     margin:0 auto;
 }
@@ -77,6 +77,8 @@ $baseFontSize:1.4em ;
     margin:0px !important;
     position: absolute;
     display: none;
+    top:29.5%;
+    left:-105px !important;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -86,13 +88,29 @@ $baseFontSize:1.4em ;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
+.historyColMobile{
+    display: none;
+}
+
+
+.headerCol{
+    margin-bottom: 40px;
+}
+
+.headerCol h1{
+    font-weight: 200 !important;
+    font-family: 'Montserrat', sans-serif;
+}
 /************** resualt box **************/
 
 .resualt_box{
     padding:15px;
     text-align: right;
 }
-
+.divider{
+    width:50% !important;
+    margin:0 auto;
+}
 
 /************** GRID **************/
 .parent {
@@ -179,16 +197,21 @@ $baseFontSize:1.4em ;
 }
 /**********************************/
 
-
+.historyContainer{
+    width: 100% !important;
+    margin:0 auto !important; 
+}
 
 .history_box{
     overflow: auto;
     height: 30vh;
     width: 90%;
+    margin:15px auto !important;
     border:1px solid $baseDarkGrayColor;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
+
 
 .collection{
     border:0px !important;
@@ -233,7 +256,16 @@ $baseFontSize:1.4em ;
 
 
 
+@media only screen and (max-width: 600px) {
 
+    .headerCol h1{
+   font-size: 200%;
+    }
+
+    .controllerContainer{
+        width:98% !important;
+    }
+  }
 
 
 

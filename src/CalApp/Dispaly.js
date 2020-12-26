@@ -221,6 +221,7 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
         const _handleBackSpace = e =>{
             //if sequence length if one item 
             if  ( sequence.length ===1 && Number(sequence[sequence.length-1]) >=10 ){
+                console.log(sequence)
                 setSequence([ sequence[sequence.length-1].slice(0,sequence[sequence.length-1].length-1 ) ])
             }else if(sequence.length ===1 && Number(sequence[sequence.length-1]) < 10  ){
                 setSequence([])
@@ -267,7 +268,7 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
         const _handelResualt =(e)=>{
             // if sequence has many items
             if (  sequence.length > 1 ){
-                setSequence( [getResualt(sequence)])
+                setSequence( [getResualt(sequence).toString()])
                 //setSequence([])
 
             }

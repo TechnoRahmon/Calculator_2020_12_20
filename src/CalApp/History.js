@@ -28,14 +28,14 @@ const History = ({  newHistory , InsertFromHistory,isHistoryEmpty }) => {
 
 
     return (
-        <div className="col s12 l4 z-depth-1 lighten-1 historyCol" id="historyCol">
+        <div className=" historyContainer " >
             <h5>History</h5>
        
             <div className="white history_box">
                 <ul className="collection">
                     {history.length?(history.map(el=>
                         <li className="collection-item left " key={Date.now()+el.resualt}>
-                            <a href="#" className="collectionLink" onClick={()=>{InsertFromHistory(el.resualt) }}> {el.sequence} <h5> = {el.resualt}</h5></a>
+                            <a href="#" className="collectionLink" onClick={(e)=>{e.preventDefault(); InsertFromHistory(el.resualt) }}> {el.sequence} <h5> = {el.resualt}</h5></a>
                         </li>
                     )):null}
                 </ul>

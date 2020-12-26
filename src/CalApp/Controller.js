@@ -46,24 +46,45 @@ const Controller = () => {
     //show history function
     const showHistory =()=>{
         let historyCol = document.getElementById('historyCol')
-            if(historyCol.style.display === '' || historyCol.style.display ==='none')
+        let historyColMobile = document.getElementById('historyColMobile')
+        
+            if(historyCol.style.display === '' || historyCol.style.display ==='none'){
+                         //console.log(historyCol)
             historyCol.style.display='flex';
+            }
             else
             historyCol.style.display='none';
+        //histoy for mobile
+        if(historyColMobile.style.display === '' || historyColMobile.style.display ==='none'){
+                         //console.log(historyColMobile)
+            historyColMobile.style.display='flex';
+            }
+            else
+            historyColMobile.style.display='none';
+
+            
     }
 
 
     // active HistoryButton
     const isHistoryEmpty = (history)=>{
         let historyCol = document.getElementById('historyCol')
+        let historyColMobile = document.getElementById('historyColMobile')
+
+
         if(history.length === 0){ 
            document.getElementById('HistoryBtn').classList.add('disabled');
            historyCol.style.display='none';
+           // for mobile
+           historyColMobile.style.display='none'
         
         }else{ 
             document.getElementById('HistoryBtn').classList.remove('disabled');
             
         }
+
+
+
     }
 
 
@@ -90,11 +111,26 @@ const Controller = () => {
     return (
         <div className="container controllerContainer">
            <div className="row controllerRow">
-               <History  newHistory={newHistory}
+
+                <div className="col s12 headerCol">
+                    <h1>Calculator App </h1>
+                    <div className="divider"></div>
+                </div>
+               <div className="historyCol hide-on-small-only col s12 l4 z-depth-1 lighten-1 " id="historyCol">
+                    <History  newHistory={newHistory}
+                    InsertFromHistory={InsertFromHistory}
+                    isHistoryEmpty={isHistoryEmpty}/>    
+               </div>
+
+        <div className=" hide-on-med-and-up col s12 l4 z-depth-1 lighten-1 historyColMobile "id="historyColMobile"> 
+                    <History  newHistory={newHistory}
                 InsertFromHistory={InsertFromHistory}
-                isHistoryEmpty={isHistoryEmpty}/>    
-               
-                <div className="col s12 l6 offset-l4 calculatorCol">
+                isHistoryEmpty={isHistoryEmpty}/>  
+        </div>
+    
+
+
+                <div className="col s12 l6 offset-l3 calculatorCol">
                     <Display getResualt={getResault} 
                     showHistory={showHistory} 
                     newNumber={newNumber} 
