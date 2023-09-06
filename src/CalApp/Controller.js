@@ -16,7 +16,6 @@ const Controller = () => {
 
   // get resault function
   const getResault = (_sequence=[]) => {
-    debugger
     const sequence = _sequence.filter(item=> item);
     // check the last item (number / operator)
     if (Number(sequence[sequence.length - 1]) && sequence[0] !== undefined && !Object.keys(operators).includes(sequence[0])) {
@@ -50,7 +49,6 @@ const Controller = () => {
       historyCol.style.display === "" ||
       historyCol.style.display === "none"
     ) {
-      //console.log(historyCol)
       historyCol.style.display = "flex";
     } else historyCol.style.display = "none";
     //histoy for mobile
@@ -58,7 +56,6 @@ const Controller = () => {
       historyColMobile.style.display === "" ||
       historyColMobile.style.display === "none"
     ) {
-      //console.log(historyColMobile)
       historyColMobile.style.display = "flex";
     } else historyColMobile.style.display = "none";
   };

@@ -41,8 +41,6 @@ const History = ({  newHistory , InsertFromHistory,isHistoryEmpty }) => {
                 </ul>
 
             </div>
-        
-
             <span className="btn z-depth-1 ClearHistoryBtn deep-orange waves-effect waves-teal" onClick={()=>{setHistory([])}}>Clear History</span>
         </div>
     );

@@ -217,7 +217,6 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
         const _handleBackSpace = e =>{
             //if sequence length if one item 
             if  ( sequence.length ===1 && Number(sequence[sequence.length-1]) >=10 ){
-                console.log(sequence)
                 setSequence([ sequence[sequence.length-1].slice(0,sequence[sequence.length-1].length-1 ) ])
             }else if(sequence.length ===1 && Number(sequence[sequence.length-1]) < 10  ){
                 setSequence([])
@@ -305,14 +304,7 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
    let n =0;
     return (
         <div className='calc_box '>
-    
-           
-                
-
-                
                 {sequence.length?
-                
-                
                 <div >
                     <div className="row seqRow"> 
                         <div className="col s12 l12  ">{sequence.map(el=>{  
@@ -358,24 +350,11 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
                     </div>
                     
                     }
-                
-                
-            
-
-
-             
-          
-           
-        
             <div className="parent">
                 {view}
             </div>
         </div>
     );
-
-
-
-
 
 }
 
