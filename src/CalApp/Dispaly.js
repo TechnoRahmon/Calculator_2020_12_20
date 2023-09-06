@@ -133,10 +133,7 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
 
         //  print out calcualte content
         useEffect(() => {
-            //var display = 
-            //console.log(sequence);
             if(newNumber){
-                console.log(newNumber)
                 setSequence([newNumber])
             }
         },[newNumber]);
@@ -153,7 +150,6 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
         // handel operators click
         const _handelOperatorClick = (e)=>{
             // set in the operator after the number1 
-            
             if(Number(sequence[sequence.length-1]))
                     setSequence([...sequence ,e.target.textContent])
             else
@@ -268,9 +264,7 @@ const DisplayDom = ({getResualt, showHistory ,newNumber,Clear_newNumber}) => {
         const _handelResualt =(e)=>{
             // if sequence has many items
             if (  sequence.length > 1 ){
-                setSequence( [getResualt(sequence).toString()])
-                //setSequence([])
-
+                setSequence( [getResualt(sequence)?.toString()])
             }
             
         }
