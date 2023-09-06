@@ -1,19 +1,12 @@
-import './App.css';
+import "./App.css";
+import Controller from "./CalApp/Controller";
 
-import Controller from './CalApp/Controller'
-
-
-
-
-const App=()=>{
-
-
+function App() {
   return (
-          <div className="App">
-              <Controller />
-          
-          </div>
-  )
+    <div className="App">
+      <Controller />
+    </div>
+  );
 }
 
 export default App;

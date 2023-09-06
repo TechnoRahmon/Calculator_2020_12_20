@@ -2,7 +2,7 @@ import Display from './Dispaly'
 import History from './History';
 import './style.scss'
 
-import React ,{ useState ,useEffect }from 'react';
+import React ,{ useState  }from 'react';
 
 const Controller = () => {
 
